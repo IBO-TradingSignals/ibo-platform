@@ -1,0 +1,45 @@
+openapi: 3.1.0
+info:
+  title: IBO Platform API
+  version: 0.1.0
+  description: >-
+    API contract (Single Source of Truth) for all IBO Platform clients
+    (Web/PWA, Android, Admin). Phase 1 scope: health-check endpoint only.
+    Full contracts are defined in Phase 2.
+servers:
+  - url: http://localhost:3000
+    description: Local development
+tags:
+  - name: Health
+    description: Service liveness
+paths:
+  /health:
+    get:
+      operationId: getHealth
+      summary: Health check
+      description: Returns service liveness status and the API version.
+      tags:
+        - Health
+      responses:
+        '200':
+          description: Service is healthy
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HealthResponse'
+components:
+  schemas:
+    HealthResponse:
+      type: object
+      required:
+        - status
+        - version
+      properties:
+        status:
+          type: string
+          enum:
+            - ok
+        version:
+          type: string
+          description: Backend API version.
+          example: 0.1.0
