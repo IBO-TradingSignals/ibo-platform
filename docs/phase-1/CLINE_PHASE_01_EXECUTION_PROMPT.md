@@ -71,4 +71,3 @@ Risk Class: R1
 ## Stop Conditions
 - اگر ابزار انتخابی (NestJS/Prisma/...) در نسخه فعلی مغایرت اساسی با فرض‌های TECH_STACK_DECISION.md داشت (مثلاً Breaking Change بزرگ) → STOP و گزارش به Claude برای بازبینی سند تصمیم، قبل از ادامه.
 - اگر هرگونه Secret واقعی به‌طور تصادفی نیاز به وارد شدن در کد داشت (نباید پیش بیاید در این Phase) → STOP فوری، این Phase چنین نیازی ندارد.
-
