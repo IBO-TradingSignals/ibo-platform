@@ -8,10 +8,10 @@
 
 - Owner / account: `IBO-TradingSignals` (primary email `ali.khani061916@gmail.com`)
 - Target repository: `IBO-TradingSignals/ibo-platform` (public, default branch `main`)
-- Working branch: `feature/phase-1-scaffold`
-- Pull request: **#1** (`feature/phase-1-scaffold` → `main`) — OPEN, `mergeable: true`
+- Scaffold branch: `feature/phase-1-scaffold` — **merged to `main` via PR #1** (`e58922ff`, owner)
+- This log: delivered on branch `docs/phase-1-worklog` → **PR #2** (`main`)
 - Log generated: 2026-09-13
-- Phase 1 status: **100% functionally complete & verified — 0% merged (awaiting review)**
+- Phase 1 status: **100% complete, verified, and merged to `main`** (owner-approved PR #1)
 
 ---
 
@@ -163,7 +163,10 @@ Versions declared vs. §7 requirement: recorded + verified in §5.
 | 2 | Run full `docker compose` proof | — (runtime) | §5.3 healthy stack + 200 |
 | 3 | Add in-repo evidence record | `1352a48` (`docs/phase-1/PHASE_01_EXECUTION_EVIDENCE.md`) | doc committed |
 
-Pushed to `feature/phase-1-scaffold` only; **no merge to `main`** (per prompt: PR + review first).
+Pushed to `feature/phase-1-scaffold`; **PR #1 was subsequently merged to `main` by the owner** (`e58922ff`). (Merge was an owner action, not performed by the agent — the agent's standing rule is no merge to `main` without a separate order.)
+
+> Note: `logs.md` (this file) was committed **after** that merge, so it is delivered separately on
+> branch `docs/phase-1-worklog` via **PR #2**.
 
 ### CI history (workflow `CI`, job `build-lint-test`) — all **success**
 | Run | Event | Head | Link |
@@ -185,16 +188,16 @@ Pushed to `feature/phase-1-scaffold` only; **no merge to `main`** (per prompt: P
 | No real secret in any commit | ✅ (0 alerts; dev placeholders only) |
 | `docs/phase-0/` unchanged | ✅ |
 | Evidence recorded in-repo (§5–§6 + `PHASE_01_EXECUTION_EVIDENCE.md`) | ✅ |
-| Merged to `main` | ⬜ **pending** — requires Claude/owner review of PR #1 |
+| Merged to `main` | ✅ **done** — via **PR #1** (owner merge `e58922ff`) |
 
-**Phase 1 build/verify = 100%. Merge = intentionally 0% (human gate).**
+**Phase 1 = 100% complete & merged to `main` (PR #1). This working log lands via PR #2.**
 
 ---
 
 ## 8. Current repository state
 
-- `main` tip: `aa00d20` ("Add files via upload" — the flat reference docs).
-- `feature/phase-1-scaffold` HEAD: `1352a48` — **7 commits ahead of `main`, 0 behind**.
+- `main` tip: `e58922ff` — merge of **PR #1** (Phase 1 scaffold + nit fix + evidence doc, all now on `main`).
+- `feature/phase-1-scaffold` HEAD: `1352a48` — 7 commits (merged), for reference:
   ```
   1352a48  docs(phase-1): record execution evidence (…)
   17d73f8  style(backend): remove unused eslint-disable directive
@@ -204,8 +207,9 @@ Pushed to `feature/phase-1-scaffold` only; **no merge to `main`** (per prompt: P
   7241bdc  chore: pnpm 12 workspace + turborepo + eslint flat + env template
   28acc80  docs: organize phase-0/phase-1 under docs/ per REPOSITORY_STRUCTURE
   ```
-- PR **#1**: open, `mergeable: true`, 7 commits / 50 files, CI green.
-- Rollback if needed: delete `feature/phase-1-scaffold`; `main` untouched.
+- **PR #1**: merged by owner (`e58922ff`), 7 commits / 50 files, CI green.
+- **PR #2** (`docs/phase-1-worklog` @ `4bd1710`): **open**, 1 file `A logs.md`, merge pending owner.
+- Rollback: Phase 1 lives on `main`; undo a merge via `git revert -m 1 e58922ff` (no force-push).
 
 ---
 
@@ -223,8 +227,8 @@ Pushed to `feature/phase-1-scaffold` only; **no merge to `main`** (per prompt: P
 
 ## 10. Next steps to continue the case
 
-1. **Close Phase 1**: owner/Claude reviews PR #1 → approve → merge to `main`
-   (squash or merge commit); optionally tag `phase-1-scaffold`.
+1. **Phase 1 closed** (PR #1 merged). Remaining bookkeeping: merge **PR #2** (`logs.md`) and
+   optionally tag `v0.1.0` / `phase-1-complete` on `main`.
 2. **Phase 2 (per architecture)**: Data model + real API contracts in
    `packages/contracts`; introduce **Prisma** + `DATABASE_URL` (limited DB user);
    Wire the first domain entities (Users/Roles/Plans/Subscriptions/Entitlements …) —
