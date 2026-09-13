@@ -1,0 +1,11 @@
+{
+  "name": "@ibo/contracts",
+  "version": "0.1.0",
+  "private": true,
+  "description": "IBO Platform API contract — OpenAPI spec and generated types shared by all clients.",
+  "scripts": {
+    "lint": "echo 'no lint targets for contracts yet (validation added in Phase 2)'",
+    "build": "echo 'code generation added in Phase 2'",
+    "test": "echo 'no tests yet (validation added in Phase 2)'"
+  }
+}
