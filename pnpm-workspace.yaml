@@ -1,0 +1,9 @@
+packages:
+  - apps/*
+  - packages/*
+  - services/*
+
+# Dependencies allowed to run install/build scripts (pnpm 12 supply-chain safety)
+allowBuilds:
+  '@parcel/watcher': true
+  unrs-resolver: true
